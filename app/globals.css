@@ -1,26 +1,392 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ─────────────────────────────────────────────────
+   @theme — custom design tokens for Tailwind v4
+───────────────────────────────────────────────── */
+@theme {
+  --font-plus-jakarta: "Plus Jakarta Sans", system-ui, sans-serif;
+
+  /* Brand colours */
+  --color-brand-purple: #7c3fbe;
+  --color-brand-pink: #d84fa5;
+  --color-brand-yellow: #ffb800;
+  --color-brand-dark: #1a0a2e;
+
+  /* Named animations — generates animate-{name} utilities */
+  --animate-slide-up: slide-up 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-float: float 4s ease-in-out infinite;
+  --animate-float-slow: float-slow 6s ease-in-out infinite;
+  --animate-spin-slow: spin-slow 12s linear infinite;
+  --animate-scale-in: scale-in 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ─────────────────────────────────────────────────
+   Keyframes
+───────────────────────────────────────────────── */
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ─────────────────────────────────────────────────
+   Base reset
+───────────────────────────────────────────────── */
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+    hanging-punctuation: first last;
+  }
+
+  body {
+    font-family: var(--font-plus-jakarta), system-ui, sans-serif;
+    font-size: 1rem;
+    line-height: 1.65;
+    color: #1a0a2e;
+    background: #ffffff;
+    min-height: 100dvh;
+  }
+
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    text-wrap: balance;
+    line-height: 1.15;
+  }
+
+  p,
+  li {
+    text-wrap: pretty;
+  }
+
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+    color: inherit;
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  ::selection {
+    background: oklch(0.5 0.2 300 / 0.18);
+    color: #1a0a2e;
+  }
+
+  :focus-visible {
+    outline: 2px solid #7c3fbe;
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  /* Skip link */
+  .skip-link {
+    position: absolute;
+    top: -100%;
+    left: 1rem;
+    z-index: 9999;
+    padding: 0.5rem 1rem;
+    background: #7c3fbe;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 0 0 8px 8px;
+    transition: top 200ms ease;
+    text-decoration: none;
+  }
+  .skip-link:focus {
+    top: 0;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* ─────────────────────────────────────────────────
+   Component classes
+───────────────────────────────────────────────── */
+@layer components {
+  /* ── Layout ── */
+  .container-wide {
+    max-width: 1200px;
+    margin-inline: auto;
+    padding-inline: clamp(1rem, 5vw, 2rem);
+  }
+
+  .container-default {
+    max-width: 960px;
+    margin-inline: auto;
+    padding-inline: clamp(1rem, 5vw, 2rem);
+  }
+
+  .container-narrow {
+    max-width: 640px;
+    margin-inline: auto;
+    padding-inline: clamp(1rem, 5vw, 2rem);
+  }
+
+  .section-padding {
+    padding-block: clamp(4rem, 7vw, 6rem);
+  }
+
+  .section-padding-sm {
+    padding-block: clamp(2.5rem, 5vw, 4rem);
+  }
+
+  /* ── Buttons ── */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.65rem 1.375rem;
+    border-radius: 9999px;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    line-height: 1.2;
+    min-height: 44px;
+    white-space: nowrap;
+    text-decoration: none;
+    cursor: pointer;
+    border: 1.5px solid transparent;
+    transition:
+      background 180ms ease,
+      color 180ms ease,
+      border-color 180ms ease,
+      box-shadow 180ms ease,
+      transform 180ms ease;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+
+  .btn:active {
+    transform: scale(0.97);
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, #7c3fbe 0%, #c040a0 100%);
+    color: #ffffff;
+    border-color: transparent;
+  }
+  .btn-primary:hover {
+    box-shadow: 0 6px 24px oklch(0.5 0.2 300 / 0.32);
+    transform: translateY(-1px);
+  }
+
+  .btn-outline {
+    background: transparent;
+    color: #7c3fbe;
+    border-color: #7c3fbe;
+  }
+  .btn-outline:hover {
+    background: #f3eeff;
+    transform: translateY(-1px);
+  }
+
+  .btn-ghost {
+    background: transparent;
+    color: #6b7280;
+    border-color: transparent;
+  }
+  .btn-ghost:hover {
+    background: #f3f4f6;
+    color: #1a0a2e;
+  }
+
+  .btn-lg {
+    padding: 0.8125rem 1.875rem;
+    font-size: 1rem;
+    min-height: 52px;
+    gap: 0.625rem;
+  }
+
+  .btn-sm {
+    padding: 0.4375rem 1rem;
+    font-size: 0.8125rem;
+    min-height: 36px;
+    gap: 0.375rem;
+  }
+
+  /* ── Gradient text ── */
+  .gradient-text {
+    background: linear-gradient(135deg, #7c3fbe 0%, #c040a0 55%, #e8609a 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  /* ── Glass card ── */
+  .glass-card {
+    background: oklch(1 0 0 / 0.88);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid oklch(1 0 0 / 0.65);
+    box-shadow: 0 4px 20px oklch(0.2 0.1 300 / 0.1);
+  }
+
+  /* ── Gradient brand soft (avatar bg etc) ── */
+  .gradient-brand-soft {
+    background: linear-gradient(135deg, #f3eeff 0%, #fce8f5 100%);
+  }
+
+  /* ── Scroll reveal ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition:
+      opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal-delay-1 {
+    transition-delay: 120ms;
+  }
+  .reveal-delay-2 {
+    transition-delay: 240ms;
+  }
+  .reveal-delay-3 {
+    transition-delay: 360ms;
+  }
+  .reveal-delay-4 {
+    transition-delay: 480ms;
+  }
+
+  /* ── Footer social button ── */
+  .footer-social-btn {
+    background: oklch(1 0 0 / 0.06);
+    border: 1px solid oklch(1 0 0 / 0.1);
+    color: oklch(1 0 0 / 0.5);
+    transition:
+      background 200ms ease,
+      border-color 200ms ease,
+      color 200ms ease;
+  }
+  .footer-social-btn:hover {
+    background: oklch(0.5 0.18 300 / 0.18);
+    border-color: oklch(0.5 0.18 300 / 0.4);
+    color: white;
+  }
+}
+
+/* ─────────────────────────────────────────────────
+   Utilities
+───────────────────────────────────────────────── */
+@layer utilities {
+  /* Animation delays — used with animate-slide-up on hero elements */
+  .delay-100 {
+    animation-delay: 100ms;
+  }
+  .delay-200 {
+    animation-delay: 200ms;
+  }
+  .delay-300 {
+    animation-delay: 300ms;
+  }
+  .delay-400 {
+    animation-delay: 400ms;
+  }
+  .delay-500 {
+    animation-delay: 500ms;
+  }
+  .delay-600 {
+    animation-delay: 600ms;
+  }
+
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
 }
