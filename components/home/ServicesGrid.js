@@ -129,6 +129,38 @@ export default function HelpPetsSection() {
         className="relative mx-auto"
         style={{ maxWidth: "1200px", paddingInline: "clamp(1rem, 5vw, 2rem)" }}
       >
+        <p className="text-center max-w-3xl mx-auto section-padding leading-relaxed">
+          orem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean{" "}
+          <span className="relative inline-block">
+            {/* Pink highlight pill */}
+            <span
+              className="relative z-10 font-bold text-[#1A1A1A] px-2 py-1 rounded-md"
+              style={{ background: "#FFD7E7" }}
+            >
+              commodo ligula eget dolor.
+            </span>
+
+            <span
+              className="absolute top-1/2 -translate-y-1/2 -right-3 flex flex-col items-center gap-0.5"
+              style={{ zIndex: 20 }}
+              aria-hidden="true"
+            >
+              <PawPrint
+                size={11}
+                color="#F9A5C6"
+                style={{ opacity: 0.65, transform: "rotate(-20deg)" }}
+              />
+              <PawPrint
+                size={16}
+                color="#F9A5C6"
+                style={{ transform: "rotate(15deg)" }}
+              />
+            </span>
+          </span>
+          <br /> Cum sociis natoque orem ipsum dolor sit amet, consectetuer
+          adipiscing elit. Aenean Cum sociis natoque orem ipsum dolor sit amet,
+          consectetuer
+        </p>
         {/* ── Section heading ── */}
         <div className="text-center mb-12 md:mb-16">
           {/* Eyebrow */}
