@@ -163,20 +163,13 @@ export default function HelpPetsSection() {
                 style={{
                   width: "clamp(44px, 6vw, 72px)",
                   height: "clamp(44px, 6vw, 72px)",
-                  borderRadius: "30% 70% 70% 30% / 30% 30% 70% 70%",
-                  overflow: "hidden",
-                  border: "3px solid #F3F4F6",
-                  boxShadow: "0 4px 12px rgba(0,0,0,0.12)",
-                  /* Slight rotation for playfulness */
-                  transform: "rotate(-4deg)",
-                  verticalAlign: "middle",
                 }}
               >
                 <Image
                   src="/images/features/meme-cat.png"
                   alt="Cool cat with sunglasses"
                   fill
-                  className="object-cover"
+                  className="object-contain"
                   sizes="72px"
                 />
               </span>
@@ -201,22 +194,28 @@ export default function HelpPetsSection() {
 
 /* ── Individual feature card ── */
 function FeatureCard({ card }) {
+  /* 🎛️ OVERLAP CONTROLS
+   * INFO_CARD_HEIGHT  → fixed height of the white info card
+   * OVERLAP           → how many px the info card climbs over the image
+   * The wrapper paddingBottom = INFO_CARD_HEIGHT - OVERLAP
+   * (that's the space below the image the info card needs)
+   */
+  const INFO_CARD_HEIGHT = 180; // px — increase for taller card
+  const OVERLAP = 48; // px — increase for more overlap onto image
+
   return (
     <div
-      className="flex flex-col rounded-3xl overflow-hidden"
-      style={{
-        border: `1.5px solid ${card.border}`,
-        boxShadow: "0 2px 16px rgba(0,0,0,0.06)",
-      }}
+      className="relative"
+      style={{ paddingBottom: `${INFO_CARD_HEIGHT - OVERLAP}px` }}
     >
-      {/* Top — animal photo with gradient bg */}
+      {/* ── Image box — ends exactly where image ends ── */}
       <div
-        className="relative w-full"
+        className="relative w-full rounded-3xl overflow-hidden"
         style={{
           background: card.bg,
           aspectRatio: "3/4",
-          maxHeight: "clamp(220px, 30vw, 320px)",
-          overflow: "hidden",
+          border: `1.5px solid ${card.border}`,
+          boxShadow: "0 2px 16px rgba(0,0,0,0.06)",
         }}
       >
         <Image
@@ -228,31 +227,33 @@ function FeatureCard({ card }) {
         />
       </div>
 
-      {/* Bottom — info card floats over the photo boundary */}
+      {/* ── Info card — fixed height, narrower, more overlap ── */}
       <div
-        className="relative bg-white mx-3 -mt-10 mb-3 rounded-2xl p-4 flex flex-col gap-2"
+        className="absolute bg-white rounded-2xl p-4 flex flex-col justify-center gap-2"
         style={{
+          /* Narrower: left-5/right-5 = 20px inset each side */
+          left: "28px",
+          right: "58px",
+          bottom: 0,
+          /* Fixed height so all cards are equal */
+          height: `${INFO_CARD_HEIGHT}px`,
           border: `1.5px solid ${card.border}`,
-          boxShadow: `0 4px 20px ${card.border}55`,
-          zIndex: 10,
+          boxShadow: `0 4px 20px ${card.border}66`,
         }}
       >
-        {/* Icon circle + badge label */}
-        <div className="flex items-center gap-2.5">
-          {/* Emoji icon in a small circle */}
+        {/* Icon + badge row */}
+        <div className="flex items-center flex-col gap-2">
           <div
-            className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 text-lg"
+            className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0 text-base"
             style={{ background: `${card.border}40` }}
             aria-hidden="true"
           >
             {card.useEmojiIcon}
           </div>
-
-          {/* Badge text */}
           <span
-            className="font-black uppercase tracking-wide leading-tight"
+            className="font-black uppercase tracking-wide leading-none"
             style={{
-              fontSize: "clamp(0.7rem, 1.1vw, 0.8125rem)",
+              fontSize: "clamp(0.65rem, 1vw, 0.75rem)",
               color: card.badgeColor,
             }}
           >
@@ -260,14 +261,19 @@ function FeatureCard({ card }) {
           </span>
         </div>
 
-        {/* Stat (card 1) or description (cards 2-4) */}
+        {/* Content row */}
         {card.stat ? (
-          <div>
-            <p className="text-[#6B7280] text-xs mb-0.5">{card.title}</p>
+          <div className="leading-tight text-center">
             <p
-              className="font-black"
+              className="text-[#6B7280] leading-none mb-1"
+              style={{ fontSize: "0.75rem" }}
+            >
+              {card.title}
+            </p>
+            <p
+              className="font-black leading-none"
               style={{
-                fontSize: "clamp(1.25rem, 2vw, 1.5rem)",
+                fontSize: "clamp(1.1rem, 1.8vw, 1.375rem)",
                 color: card.statColor,
               }}
             >
@@ -276,8 +282,14 @@ function FeatureCard({ card }) {
           </div>
         ) : (
           <p
-            className="text-[#374151] leading-snug"
-            style={{ fontSize: "clamp(0.75rem, 1vw, 0.8125rem)" }}
+            className="text-[#374151] leading-snug text-center"
+            style={{
+              fontSize: "0.75rem",
+              display: "-webkit-box",
+              WebkitLineClamp: 3,
+              WebkitBoxOrient: "vertical",
+              overflow: "hidden",
+            }}
           >
             {card.desc}
           </p>
