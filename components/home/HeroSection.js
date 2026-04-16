@@ -285,7 +285,7 @@ export default function HeroSection() {
               className="animate-slide-up delay-200 flex items-center gap-3 w-fit 
                 px-4 py-2.5 rounded-full mb-6"
               style={{
-                background: "#F5F0FF",
+                background: "#EDE1FF",
                 border: "1px solid #E9D8FD",
               }}
             >
