@@ -210,7 +210,7 @@ function FeatureCard({ card }) {
     >
       {/* ── Image box — ends exactly where image ends ── */}
       <div
-        className="relative w-full rounded-3xl overflow-hidden"
+        className="relative w-full rounded-[1.5rem] overflow-hidden"
         style={{
           background: card.bg,
           aspectRatio: "3/4",
@@ -229,7 +229,7 @@ function FeatureCard({ card }) {
 
       {/* ── Info card — fixed height, narrower, more overlap ── */}
       <div
-        className="absolute bg-white rounded-2xl p-4 flex flex-col justify-center gap-2"
+        className="absolute bg-white rounded-[1rem] p-4 flex flex-col justify-center gap-2"
         style={{
           /* Narrower: left-5/right-5 = 20px inset each side */
           left: "28px",
