@@ -14,10 +14,10 @@ export default function HomePage() {
     <main>
       <HeroSection />
       <ServicesGrid />
-      <StatsSection />
-      <PhaseRoadmap />
-      <AppPreview />
-      <CTASection />
+      {/* <StatsSection /> */}
+      {/* <PhaseRoadmap /> */}
+      {/* <AppPreview /> */}
+      {/* <CTASection /> */}
     </main>
   );
 }
