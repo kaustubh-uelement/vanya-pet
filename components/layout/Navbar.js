@@ -59,33 +59,30 @@ export default function Navbar() {
             className="flex items-center gap-2.5 shrink-0"
             aria-label="Vanya Pet — Home"
           >
+            {/* Icon/favicon logo */}
             <div className="relative w-10 h-10 shrink-0">
               <Image
-                src="/images/logo.png"
-                alt="Vanya Pet logo"
+                src="/logo-icon.png"
+                alt=""
                 fill
                 className="object-contain"
                 priority
               />
             </div>
-            <span
-              className="font-extrabold tracking-tight text-[#1A0A2E]"
-              style={{
-                fontFamily: "var(--font-plus-jakarta, sans-serif)",
-                fontSize: "1.125rem",
-              }}
+
+            {/* Text logo */}
+            <div
+              className="relative h-8 w-auto shrink-0"
+              style={{ aspectRatio: "auto", width: "clamp(80px, 8vw, 110px)" }}
             >
-              Vanya{" "}
-              <span
-                style={{
-                  background: "linear-gradient(135deg, #D84FA5, #7C3FBE)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                }}
-              >
-                Pet
-              </span>
-            </span>
+              <Image
+                src="/logo-text.png"
+                alt="Vanya Pet"
+                fill
+                className="object-contain object-left"
+                priority
+              />
+            </div>
           </Link>
 
           {/* ── Desktop: nav links + CTA pushed to right ── */}

@@ -72,28 +72,33 @@ export default function Footer() {
           <div className="flex flex-col gap-5">
             {/* Logo */}
             <Link href="/" className="inline-flex items-center gap-3 w-fit">
+              {/* Icon/favicon logo */}
               <div
                 className="relative shrink-0"
                 style={{ width: "52px", height: "52px" }}
               >
                 <Image
-                  src="/images/logo-icon.png"
-                  alt="Vanya Pet icon"
+                  src="/logo-icon.png"
+                  alt=""
                   fill
                   className="object-contain"
                   sizes="52px"
                 />
               </div>
-              <span
-                className="font-bold"
-                style={{
-                  fontFamily: "var(--font-plus-jakarta, sans-serif)",
-                  fontSize: "clamp(1.25rem, 2vw, 1.625rem)",
-                  color: "#D84FA5",
-                }}
+
+              {/* Text logo */}
+              <div
+                className="relative shrink-0"
+                style={{ width: "clamp(100px, 10vw, 140px)", height: "52px" }}
               >
-                Vanya Pet
-              </span>
+                <Image
+                  src="/logo-text.png"
+                  alt="Vanya Pet"
+                  fill
+                  className="object-contain object-left"
+                  sizes="140px"
+                />
+              </div>
             </Link>
 
             {/* Tagline paragraphs */}
