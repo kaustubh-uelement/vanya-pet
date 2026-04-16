@@ -4,6 +4,7 @@ import StatsSection from "@/components/home/StatsSection";
 import PhaseRoadmap from "@/components/home/PhaseRoadmap";
 import AppPreview from "@/components/home/AppPreview";
 import CTASection from "@/components/home/CTASection";
+import FamilySection from "@/components/home/FamilySection";
 
 export const metadata = {
   title: "Vanya Pet — Your Pet's World. Just a Tap Away.",
@@ -14,6 +15,7 @@ export default function HomePage() {
     <main>
       <HeroSection />
       <ServicesGrid />
+      <FamilySection />
       {/* <StatsSection /> */}
       {/* <PhaseRoadmap /> */}
       {/* <AppPreview /> */}
