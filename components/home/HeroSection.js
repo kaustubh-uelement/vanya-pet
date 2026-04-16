@@ -280,18 +280,8 @@ export default function HeroSection() {
             zIndex: 20,
           }}
         >
-          {/* 🐶 DOG — anchored to bottom, shifts left via right offset */}
-          <div
-            className="absolute"
-            style={{
-              left: "5%",
-              right: "30%" /* controls width indirectly */,
-              height: "130%",
-              bottom: "-30%",
-
-              zIndex: 1,
-            }}
-          >
+          {/* 🐶 DOG */}
+          <div className="absolute dog-bleed" style={{ zIndex: 1 }}>
             <Image
               src="/images/hero-dog.png"
               alt="Happy dog with paws resting on the edge"
@@ -303,17 +293,8 @@ export default function HeroSection() {
             />
           </div>
 
-          {/* 🐱 CAT — anchored to bottom-right */}
-          <div
-            className="absolute"
-            style={{
-              right: "-25%",
-              left: "60%" /* controls width indirectly */,
-              height: "108%",
-              bottom: "-8%",
-              zIndex: 2,
-            }}
-          >
+          {/* 🐱 CAT */}
+          <div className="absolute cat-bleed" style={{ zIndex: 2 }}>
             <Image
               src="/images/hero-cat.png"
               alt="Curious cat peeking over the edge"

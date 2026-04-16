@@ -406,3 +406,115 @@
     color: #343330;
   }
 }
+
+/* ─────────────────────────────────────────────────
+   Hero section images
+───────────────────────────────────────────────── */
+
+/* ── DOG ── */
+.dog-bleed {
+  /* Mobile < 640px */
+  left: 5%;
+  right: 30%;
+  height: 138%;
+  bottom: -38%;
+}
+
+@media (min-width: 640px) {
+  .dog-bleed {
+    left: 5%;
+    right: 30%;
+    height: 120%;
+    bottom: -42%;
+  }
+}
+
+@media (min-width: 768px) {
+  .dog-bleed {
+    left: 5%;
+    right: 28%;
+    height: 117%;
+    bottom: -40%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dog-bleed {
+    left: 5%;
+    right: 30%;
+    height: 128%;
+    bottom: -28%;
+  }
+}
+
+@media (min-width: 1280px) {
+  .dog-bleed {
+    left: 5%;
+    right: 30%;
+    height: 130%;
+    bottom: -30%;
+  }
+}
+
+@media (min-width: 1536px) {
+  .dog-bleed {
+    left: 5%;
+    right: 30%;
+    height: 125%;
+    bottom: -25%;
+  }
+}
+
+/* ── CAT ── */
+.cat-bleed {
+  /* Mobile < 640px */
+  left: 60%;
+  right: -25%;
+  height: 108%;
+  bottom: -8%;
+}
+
+@media (min-width: 640px) {
+  .cat-bleed {
+    left: 58%;
+    right: -22%;
+    height: 108%;
+    bottom: -8%;
+  }
+}
+
+@media (min-width: 768px) {
+  .cat-bleed {
+    left: 56%;
+    right: -20%;
+    height: 108%;
+    bottom: -8%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .cat-bleed {
+    left: 55%;
+    right: -25%;
+    height: 108%;
+    bottom: -8%;
+  }
+}
+
+@media (min-width: 1280px) {
+  .cat-bleed {
+    left: 54%;
+    right: -22%;
+    height: 108%;
+    bottom: -8%;
+  }
+}
+
+@media (min-width: 1536px) {
+  .cat-bleed {
+    left: 52%;
+    right: -20%;
+    height: 108%;
+    bottom: -8%;
+  }
+}
