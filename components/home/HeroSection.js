@@ -358,16 +358,10 @@ export default function HeroSection() {
       <div
         aria-hidden="true"
         className="absolute bottom-0 left-0 right-0 pointer-events-none"
-        style={{ height: "5px", background: "rgba(0,0,0,0.09)", zIndex: 8 }}
-      />
-      <div
-        aria-hidden="true"
-        className="absolute left-0 right-0 pointer-events-none"
         style={{
-          bottom: "5px",
-          height: "70px",
+          height: "80px",
           background:
-            "linear-gradient(to top, rgba(0,0,0,0.05) 0%, transparent 100%)",
+            "linear-gradient(to top, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.045) 40%, transparent 100%)",
           zIndex: 8,
         }}
       />

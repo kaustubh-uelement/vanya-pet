@@ -168,7 +168,7 @@ export default function Footer() {
               href="#download"
               className="inline-flex items-center justify-center
                 border-2 rounded-full font-semibold
-                hover:bg-[#D84FA5] hover:text-white
+                hover:bg-[#D84FA5] hover:text-white!
                 transition-colors duration-200"
               style={{
                 borderColor: "#D84FA5",
