@@ -24,7 +24,7 @@ const CAT = {
   height: "95%",
   zIndex: 2,
 };
-const IMAGE_CONTAINER_HEIGHT = "clamp(300px, 46vw, 520px)";
+const IMAGE_CONTAINER_HEIGHT = "clamp(280px, 44vw, 500px)";
 
 export default function HeroSection() {
   return (
@@ -280,15 +280,16 @@ export default function HeroSection() {
             zIndex: 20,
           }}
         >
-          {/* 🐶 DOG */}
+          {/* 🐶 DOG — anchored to bottom, shifts left via right offset */}
           <div
             className="absolute"
             style={{
-              left: DOG.left,
-              bottom: DOG.bottom,
-              width: DOG.width,
-              height: DOG.height,
-              zIndex: DOG.zIndex,
+              left: "5%",
+              right: "30%" /* controls width indirectly */,
+              height: "130%",
+              bottom: "-30%",
+
+              zIndex: 1,
             }}
           >
             <Image
@@ -302,15 +303,15 @@ export default function HeroSection() {
             />
           </div>
 
-          {/* 🐱 CAT */}
+          {/* 🐱 CAT — anchored to bottom-right */}
           <div
             className="absolute"
             style={{
-              right: CAT.right,
-              bottom: CAT.bottom,
-              width: CAT.width,
-              height: CAT.height,
-              zIndex: CAT.zIndex,
+              right: "-25%",
+              left: "60%" /* controls width indirectly */,
+              height: "108%",
+              bottom: "-8%",
+              zIndex: 2,
             }}
           >
             <Image
