@@ -1,218 +1,288 @@
 "use client";
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-import { services } from "@/lib/data";
 
-const phaseLabel = {
-  1: { text: "MVP", bg: "#F3EEFF", color: "#7C3FBE", border: "#D8C8F0" },
-  2: { text: "Phase 2", bg: "#FCE8F5", color: "#D84FA5", border: "#F0C8E0" },
-  3: { text: "Phase 3", bg: "#FFF8E1", color: "#B07800", border: "#FFE082" },
-};
+import Image from "next/image";
+import PawPrint from "@/components/ui/PawPrint";
 
-export default function ServicesGrid() {
+/* ── Card data ── */
+const cards = [
+  {
+    id: 1,
+    image: "/images/features/card1.png",
+    bg: "linear-gradient(160deg, #FFD6E7 0%, #FFB3D1 100%)",
+    border: "#F9A8D4",
+    badge: "GREAT WALK!",
+    badgeColor: "#EC4899",
+    icon: "/images/features/icon-walk.png",
+    useEmojiIcon: "🦮",
+    title: "Max walked for",
+    stat: "45 mins",
+    statColor: "#EC4899",
+    desc: null,
+  },
+  {
+    id: 2,
+    image: "/images/features/card2.png",
+    bg: "linear-gradient(160deg, #DBEAFE 0%, #BFDBFE 100%)",
+    border: "#93C5FD",
+    badge: "RECORD ADDED!",
+    badgeColor: "#2563EB",
+    icon: "/images/features/icon-record.png",
+    useEmojiIcon: "💉",
+    title: null,
+    stat: null,
+    statColor: null,
+    desc: (
+      <>
+        Your care today means a <strong>healthier tomorrow</strong> for your cat
+      </>
+    ),
+  },
+  {
+    id: 3,
+    image: "/images/features/card3.png",
+    bg: "linear-gradient(160deg, #EDE9FE 0%, #DDD6FE 100%)",
+    border: "#C4B5FD",
+    badge: "WEIGHT CHECK",
+    badgeColor: "#7C3FBE",
+    icon: "/images/features/icon-weight.png",
+    useEmojiIcon: "⚖️",
+    title: null,
+    stat: null,
+    statColor: null,
+    desc: (
+      <>
+        A <strong>little check</strong> that tells you how Luna is doing
+      </>
+    ),
+  },
+  {
+    id: 4,
+    image: "/images/features/card4.png",
+    bg: "linear-gradient(160deg, #CCFBF1 0%, #99F6E4 100%)",
+    border: "#5EEAD4",
+    badge: "EXPENSE ADDED",
+    badgeColor: "#0D9488",
+    icon: "/images/features/icon-expense.png",
+    useEmojiIcon: "₹",
+    title: null,
+    stat: null,
+    statColor: null,
+    desc: (
+      <>
+        Tracking every step shows how much <strong>you care</strong>
+      </>
+    ),
+  },
+];
+
+export default function HelpPetsSection() {
   return (
-    <section className="section-padding bg-white relative overflow-hidden">
-      {/* Bg blobs */}
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-        <div
-          className="absolute -top-40 -right-40 w-96 h-96 rounded-full"
+    <section
+      className="relative bg-white overflow-hidden"
+      style={{ padding: "clamp(4rem, 8vw, 7rem) 0 clamp(5rem, 10vw, 9rem)" }}
+    >
+      {/* ── Scattered paws ── */}
+      <div aria-hidden="true" className="absolute inset-0 pointer-events-none">
+        <PawPrint
+          size={52}
+          color="#F472B6"
           style={{
-            background:
-              "radial-gradient(circle, #7C3FBE06 0%, transparent 70%)",
+            position: "absolute",
+            top: "8%",
+            left: "3%",
+            transform: "rotate(-15deg)",
+            opacity: 0.35,
           }}
         />
-        <div
-          className="absolute -bottom-32 -left-32 w-80 h-80 rounded-full"
+        <PawPrint
+          size={38}
+          color="#A78BFA"
           style={{
-            background:
-              "radial-gradient(circle, #D84FA506 0%, transparent 70%)",
+            position: "absolute",
+            bottom: "6%",
+            right: "4%",
+            transform: "rotate(12deg)",
+            opacity: 0.3,
+          }}
+        />
+        <PawPrint
+          size={24}
+          color="#F9A8D4"
+          style={{
+            position: "absolute",
+            top: "20%",
+            right: "8%",
+            transform: "rotate(20deg)",
+            opacity: 0.25,
+          }}
+        />
+        <PawPrint
+          size={18}
+          color="#C4B5FD"
+          style={{
+            position: "absolute",
+            bottom: "20%",
+            left: "6%",
+            transform: "rotate(-8deg)",
+            opacity: 0.2,
           }}
         />
       </div>
 
-      <div className="container-wide relative">
-        {/* Section header */}
-        <div className="text-center mb-12">
-          <span
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full
-            text-xs font-semibold uppercase tracking-widest
-            bg-[#F3EEFF] text-[#7C3FBE] border border-[#D8C8F0] mb-5 reveal"
+      <div
+        className="relative mx-auto"
+        style={{ maxWidth: "1200px", paddingInline: "clamp(1rem, 5vw, 2rem)" }}
+      >
+        {/* ── Section heading ── */}
+        <div className="text-center mb-12 md:mb-16">
+          {/* Eyebrow */}
+          <p
+            className="text-[#9CA3AF] mb-4 tracking-wide"
+            style={{ fontSize: "clamp(0.8rem, 1.2vw, 0.9375rem)" }}
           >
-            ✦ 11 Service Verticals
-          </span>
+            Built by pet parents
+          </p>
 
+          {/* Main headline */}
           <h2
-            className="font-extrabold text-[#1A0A2E] mb-4 reveal reveal-delay-1"
+            className="font-black text-[#1A1A1A] uppercase leading-[1.05] tracking-tight"
             style={{
               fontFamily: "var(--font-plus-jakarta, sans-serif)",
-              fontSize: "clamp(2rem, 4vw, 3rem)",
+              fontSize: "clamp(2.25rem, 6vw, 4.5rem)",
             }}
           >
-            Everything Your Pet <span className="gradient-text">Deserves</span>
-          </h2>
+            {/* Line 1 */}
+            <span className="block">To Help Pets</span>
 
-          <p
-            className="text-[#6B7280] max-w-lg mx-auto leading-relaxed reveal reveal-delay-2"
-            style={{ fontSize: "clamp(1rem, 1.5vw, 1.125rem)" }}
-          >
-            One platform. Every milestone of your pet&apos;s life — from first
-            day home to lifetime care.
-          </p>
-        </div>
-
-        {/* Phase legend */}
-        <div className="flex flex-wrap items-center justify-center gap-2.5 mb-10 reveal">
-          {[1, 2, 3].map((p) => {
-            const cfg = phaseLabel[p];
-            return (
+            {/* Line 2 — with inline meme cat */}
+            <span className="inline-flex items-center gap-3 flex-wrap justify-center">
+              Live Longer
+              {/* Meme cat inline sticker */}
               <span
-                key={p}
-                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold"
+                className="inline-block align-middle relative shrink-0"
                 style={{
-                  background: cfg.bg,
-                  color: cfg.color,
-                  border: `1px solid ${cfg.border}`,
+                  width: "clamp(44px, 6vw, 72px)",
+                  height: "clamp(44px, 6vw, 72px)",
+                  borderRadius: "30% 70% 70% 30% / 30% 30% 70% 70%",
+                  overflow: "hidden",
+                  border: "3px solid #F3F4F6",
+                  boxShadow: "0 4px 12px rgba(0,0,0,0.12)",
+                  /* Slight rotation for playfulness */
+                  transform: "rotate(-4deg)",
+                  verticalAlign: "middle",
                 }}
               >
-                <span
-                  className="w-1.5 h-1.5 rounded-full inline-block"
-                  style={{ background: cfg.color }}
+                <Image
+                  src="/images/features/meme-cat.png"
+                  alt="Cool cat with sunglasses"
+                  fill
+                  className="object-cover"
+                  sizes="72px"
                 />
-                {p === 1 ? "Phase 1 · MVP" : `Phase ${p}`}
               </span>
-            );
-          })}
-          <span className="text-xs text-[#9CA3AF] pl-1">— rollout order</span>
+              And
+            </span>
+
+            {/* Line 3 */}
+            <span className="block">Happier.</span>
+          </h2>
         </div>
 
-        {/* Cards grid */}
-        <ul
-          role="list"
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"
-        >
-          {services.map((svc) => (
-            <ServiceCard key={svc.id} svc={svc} />
+        {/* ── Cards grid ── */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {cards.map((card) => (
+            <FeatureCard key={card.id} card={card} />
           ))}
-        </ul>
-
-        {/* Bottom CTA */}
-        <div className="flex justify-center mt-12 reveal">
-          <Link href="/services" className="btn btn-outline btn-lg group">
-            Explore All Services
-            <ArrowRight
-              size={17}
-              className="transition-transform duration-200 group-hover:translate-x-1"
-            />
-          </Link>
         </div>
       </div>
     </section>
   );
 }
 
-/* ── Card component ── */
-function ServiceCard({ svc }) {
-  const cfg = phaseLabel[svc.phase];
-  const isPhase1 = svc.phase === 1;
-
+/* ── Individual feature card ── */
+function FeatureCard({ card }) {
   return (
-    <li className="h-full reveal">
+    <div
+      className="flex flex-col rounded-3xl overflow-hidden"
+      style={{
+        border: `1.5px solid ${card.border}`,
+        boxShadow: "0 2px 16px rgba(0,0,0,0.06)",
+      }}
+    >
+      {/* Top — animal photo with gradient bg */}
       <div
-        className={`h-full flex flex-col gap-4 rounded-2xl p-5
-          border cursor-default
-          ${
-            isPhase1
-              ? "bg-white border-[#E8D8FF] shadow-[0_2px_12px_oklch(0.4_0.15_300/0.07)]"
-              : "bg-[#FAFAFA] border-[#EBEBEB] shadow-[0_1px_6px_oklch(0.2_0.02_250/0.05)]"
-          }`}
+        className="relative w-full"
         style={{
-          transition:
-            "box-shadow 220ms ease, transform 220ms ease, border-color 220ms ease, background 220ms ease",
-        }}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.transform = "translateY(-4px)";
-          e.currentTarget.style.boxShadow = isPhase1
-            ? "0 10px 32px oklch(0.4 0.15 300/0.14)"
-            : "0 8px 24px oklch(0.2 0.05 250/0.1)";
-          if (!isPhase1) e.currentTarget.style.background = "#fff";
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.transform = "translateY(0)";
-          e.currentTarget.style.boxShadow = isPhase1
-            ? "0 2px 12px oklch(0.4 0.15 300/0.07)"
-            : "0 1px 6px oklch(0.2 0.02 250/0.05)";
-          if (!isPhase1) e.currentTarget.style.background = "#FAFAFA";
+          background: card.bg,
+          aspectRatio: "3/4",
+          maxHeight: "clamp(220px, 30vw, 320px)",
+          overflow: "hidden",
         }}
       >
-        {/* Row 1: Icon + Phase badge */}
-        <div className="flex items-center justify-between gap-3">
+        <Image
+          src={card.image}
+          alt={card.badge}
+          fill
+          sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 23vw"
+          className="object-cover object-top"
+        />
+      </div>
+
+      {/* Bottom — info card floats over the photo boundary */}
+      <div
+        className="relative bg-white mx-3 -mt-10 mb-3 rounded-2xl p-4 flex flex-col gap-2"
+        style={{
+          border: `1.5px solid ${card.border}`,
+          boxShadow: `0 4px 20px ${card.border}55`,
+          zIndex: 10,
+        }}
+      >
+        {/* Icon circle + badge label */}
+        <div className="flex items-center gap-2.5">
+          {/* Emoji icon in a small circle */}
           <div
-            className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
-            style={{
-              background: `${svc.color}14`,
-              border: `1.5px solid ${svc.color}28`,
-              fontSize: "22px",
-              lineHeight: 1,
-            }}
+            className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 text-lg"
+            style={{ background: `${card.border}40` }}
+            aria-hidden="true"
           >
-            {svc.icon}
+            {card.useEmojiIcon}
           </div>
+
+          {/* Badge text */}
           <span
-            className="inline-flex items-center px-2.5 py-1 rounded-full
-              text-[11px] font-semibold leading-none flex-shrink-0"
+            className="font-black uppercase tracking-wide leading-tight"
             style={{
-              background: cfg.bg,
-              color: cfg.color,
-              border: `1px solid ${cfg.border}`,
+              fontSize: "clamp(0.7rem, 1.1vw, 0.8125rem)",
+              color: card.badgeColor,
             }}
           >
-            {cfg.text}
+            {card.badge}
           </span>
         </div>
 
-        {/* Row 2: Title */}
-        <h3
-          className="text-[#1A0A2E] font-bold leading-snug"
-          style={{
-            fontFamily: "var(--font-plus-jakarta, sans-serif)",
-            fontSize: "0.9375rem",
-          }}
-        >
-          {svc.title}
-        </h3>
-
-        {/* Row 3: Description */}
-        <p
-          className="text-[#6B7280] leading-relaxed flex-1"
-          style={{
-            fontSize: "0.8125rem",
-            display: "-webkit-box",
-            WebkitLineClamp: 2,
-            WebkitBoxOrient: "vertical",
-            overflow: "hidden",
-          }}
-        >
-          {svc.description}
-        </p>
-
-        {/* Row 4: Feature pills */}
-        <div className="flex flex-wrap gap-1.5 pt-1">
-          {svc.features.slice(0, 2).map((feat) => (
-            <span
-              key={feat}
-              className="text-[11px] font-medium px-2.5 py-1 rounded-full leading-none"
-              style={{ background: `${svc.color}12`, color: svc.color }}
+        {/* Stat (card 1) or description (cards 2-4) */}
+        {card.stat ? (
+          <div>
+            <p className="text-[#6B7280] text-xs mb-0.5">{card.title}</p>
+            <p
+              className="font-black"
+              style={{
+                fontSize: "clamp(1.25rem, 2vw, 1.5rem)",
+                color: card.statColor,
+              }}
             >
-              {feat}
-            </span>
-          ))}
-          {svc.features.length > 2 && (
-            <span className="text-[11px] font-medium px-2.5 py-1 rounded-full leading-none bg-[#F3F4F6] text-[#9CA3AF]">
-              +{svc.features.length - 2}
-            </span>
-          )}
-        </div>
+              {card.stat}
+            </p>
+          </div>
+        ) : (
+          <p
+            className="text-[#374151] leading-snug"
+            style={{ fontSize: "clamp(0.75rem, 1vw, 0.8125rem)" }}
+          >
+            {card.desc}
+          </p>
+        )}
       </div>
-    </li>
+    </div>
   );
 }
