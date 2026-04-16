@@ -120,14 +120,7 @@ export default function FindFriendSection() {
           </div>
 
           {/* Headline */}
-          <h2
-            className="font-black uppercase text-[#1A1A1A] leading-[1.0]
-              tracking-tight mb-5"
-            style={{
-              fontFamily: "var(--font-plus-jakarta, sans-serif)",
-              fontSize: "clamp(2rem, 3.5vw, 3rem)",
-            }}
-          >
+          <h2 className="font-title mb-5">
             Find Your
             <br />
             Pet&apos;s Next Best

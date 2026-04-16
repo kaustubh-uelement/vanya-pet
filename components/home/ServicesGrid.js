@@ -164,21 +164,12 @@ export default function HelpPetsSection() {
         {/* ── Section heading ── */}
         <div className="text-center mb-12 md:mb-16">
           {/* Eyebrow */}
-          <p
-            className="text-[#9CA3AF] mb-4 tracking-wide"
-            style={{ fontSize: "clamp(0.8rem, 1.2vw, 0.9375rem)" }}
-          >
+          <p className="text-[#9CA3AF] mb-4 tracking-wide">
             Built by pet parents
           </p>
 
           {/* Main headline */}
-          <h2
-            className="font-black text-[#1A1A1A] uppercase leading-[1.05] tracking-tight"
-            style={{
-              fontFamily: "var(--font-plus-jakarta, sans-serif)",
-              fontSize: "clamp(2.25rem, 6vw, 4.5rem)",
-            }}
-          >
+          <h2 className="font-title">
             {/* Line 1 */}
             <span className="block">To Help Pets</span>
 

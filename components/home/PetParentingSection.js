@@ -77,7 +77,7 @@ export default function PetParentingSection() {
           ══════════════════ */}
           <div className="flex-1 min-w-0">
             {/* Eyebrow + doodle curl */}
-            <div className="flex items-end gap-1 mb-2">
+            {/* <div className="flex items-end gap-1 mb-2">
               <span
                 className="text-[#1A1A1A]"
                 style={{
@@ -88,7 +88,6 @@ export default function PetParentingSection() {
               >
                 Anytime, Anywhere
               </span>
-              {/* Small doodle curl — exactly like in Figma */}
               <svg
                 width="22"
                 height="26"
@@ -105,17 +104,10 @@ export default function PetParentingSection() {
                   fill="none"
                 />
               </svg>
-            </div>
+            </div> */}
 
             {/* Headline */}
-            <h2
-              className="font-black uppercase text-[#1A1A1A] leading-[1.0]
-                tracking-tight mb-6"
-              style={{
-                fontFamily: "var(--font-plus-jakarta, sans-serif)",
-                fontSize: "clamp(2.25rem, 4.5vw, 3.5rem)",
-              }}
-            >
+            <h2 className="font-title mb-6">
               Your
               <br />
               Pet Parenting

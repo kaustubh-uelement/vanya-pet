@@ -62,7 +62,7 @@ export default function ExpertTipsSection() {
         ══════════════════════════════ */}
         <div className="mb-12 md:mb-16">
           {/* Eyebrow — orange, 2 lines */}
-          <div className="flex items-end gap-1 mb-2">
+          {/* <div className="flex items-end gap-1 mb-2">
             <p
               style={{
                 fontFamily: "var(--font-plus-jakarta, sans-serif)",
@@ -76,7 +76,6 @@ export default function ExpertTipsSection() {
               <br />
               their stories
             </p>
-            {/* Doodle curl */}
             <svg
               width="22"
               height="26"
@@ -93,19 +92,10 @@ export default function ExpertTipsSection() {
                 fill="none"
               />
             </svg>
-          </div>
+          </div> */}
 
           {/* Headline */}
-          <h2
-            className="font-black uppercase text-[#1A1A1A] leading-[1.0]
-              tracking-tight mb-4"
-            style={{
-              fontFamily: "var(--font-plus-jakarta, sans-serif)",
-              fontSize: "clamp(2.25rem, 5vw, 3.75rem)",
-            }}
-          >
-            Expert Tips
-          </h2>
+          <h2 className="font-title mb-4">Expert Tips</h2>
 
           {/* Body */}
           <p

@@ -46,7 +46,7 @@ export default function FamilySection() {
           {/* Left — eyebrow + headline + desc */}
           <div className="flex-1 max-w-lg">
             {/* Eyebrow */}
-            <div className="flex items-center gap-1 mb-3">
+            {/* <div className="flex items-center gap-1 mb-3">
               <span
                 style={{
                   fontFamily: "'Caveat', cursive",
@@ -73,16 +73,10 @@ export default function FamilySection() {
                   strokeDasharray="3 3"
                 />
               </svg>
-            </div>
+            </div> */}
 
             {/* Headline */}
-            <h2
-              className="font-black uppercase text-[#1A1A1A] leading-[1.05] mb-4"
-              style={{
-                fontFamily: "var(--font-plus-jakarta, sans-serif)",
-                fontSize: "clamp(2rem, 4vw, 3rem)",
-              }}
-            >
+            <h2 className="font-title mb-4">
               Add Your
               <br />
               Family Members

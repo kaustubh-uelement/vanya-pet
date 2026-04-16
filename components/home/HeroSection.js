@@ -183,32 +183,9 @@ export default function HeroSection() {
           <div className="w-full" style={{ maxWidth: "min(100%, 480px)" }}>
             {/* Headline */}
             <div className="relative mb-4">
-              {/* "ever" cursive */}
-              <span
-                aria-hidden="true"
-                className="absolute hidden sm:block select-none"
-                style={{
-                  top: "-0.4em",
-                  right: "0",
-                  fontFamily: 'Georgia, "Times New Roman", serif',
-                  fontStyle: "italic",
-                  fontWeight: 400,
-                  fontSize: "clamp(0.9rem, 1.6vw, 1.25rem)",
-                  color: "#EC4899",
-                  transform: "rotate(-8deg)",
-                  textDecoration: "underline",
-                  textDecorationStyle: "wavy",
-                  textDecorationColor: "#EC4899",
-                }}
-              >
-                ever
-              </span>
-
               <h1
-                className="animate-slide-up font-black uppercase text-[#1A1A1A] tracking-tight"
+                className="animate-slide-up font-title"
                 style={{
-                  fontFamily: "var(--font-plus-jakarta, sans-serif)",
-                  fontSize: "clamp(2rem, 5.5vw, 3.75rem)",
                   lineHeight: 1.05,
                 }}
               >
@@ -252,7 +229,7 @@ export default function HeroSection() {
 
             {/* Subheading */}
             <p
-              className="animate-slide-up delay-100 text-gray-600 leading-relaxed mb-5"
+              className="animate-slide-up delay-100 font-body text-gray-600 leading-relaxed mb-5"
               style={{
                 fontSize: "clamp(0.9rem, 1.4vw, 1.0625rem)",
                 maxWidth: "42ch",
@@ -263,20 +240,15 @@ export default function HeroSection() {
 
             {/* Social proof pill */}
             <div
-              className="animate-slide-up delay-200 flex items-center gap-3 w-fit 
-                px-4 py-2.5 rounded-full mb-6"
-              style={{
-                background: "#EDE1FF",
-                border: "1px solid #E9D8FD",
-              }}
+              className="animate-slide-up delay-200 flex items-center gap-3 w-fit px-4 py-2.5 rounded-full mb-6"
+              style={{ background: "#EDE1FF", border: "1px solid #E9D8FD" }}
             >
               <div className="flex items-center">
                 {avatars.map((av, i) => (
                   <div
                     key={i}
                     aria-hidden="true"
-                    className="flex items-center justify-center rounded-full 
-                      font-bold text-gray-700 border-2 border-white shrink-0 relative"
+                    className="font-body flex items-center justify-center rounded-full font-bold text-gray-700 border-2 border-white shrink-0 relative"
                     style={{
                       width: "30px",
                       height: "30px",
@@ -291,7 +263,7 @@ export default function HeroSection() {
                 ))}
               </div>
               <p
-                className="font-medium text-gray-700"
+                className="font-body font-medium text-gray-700"
                 style={{ fontSize: "clamp(0.75rem, 1.2vw, 0.875rem)" }}
               >
                 &ldquo;All my pet records in one place&rdquo;

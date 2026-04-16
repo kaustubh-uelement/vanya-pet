@@ -1,13 +1,20 @@
-import { Plus_Jakarta_Sans } from "next/font/google";
+import { Poppins, IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import RevealObserver from "@/components/ui/RevealObserver";
 
-const plusJakarta = Plus_Jakarta_Sans({
+const poppins = Poppins({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-  variable: "--font-plus-jakarta",
+  weight: ["400", "600", "900"],
+  variable: "--font-poppins",
+  display: "swap",
+});
+
+const ibmPlexSans = IBM_Plex_Sans({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-ibm-plex",
   display: "swap",
 });
 
@@ -45,7 +52,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={plusJakarta.variable}>
+    <html lang="en" className={`${poppins.variable} ${ibmPlexSans.variable}`}>
       <body>
         <a href="#main-content" className="skip-link">
           Skip to main content
