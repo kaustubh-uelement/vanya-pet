@@ -165,13 +165,13 @@ export default function PetParentingSection() {
                 >
                   <path
                     d="M12 2 L13.5 9.5 L21 12 L13.5 14.5 L12 22 L10.5 14.5 L3 12 L10.5 9.5 Z"
-                    fill="#F97316"
-                    stroke="#F97316"
+                    fill="#D84FA5"
+                    stroke="#D84FA5"
                     strokeWidth="0.5"
                     strokeLinejoin="round"
                   />
                   {/* Small top-right sparkle dot */}
-                  <circle cx="18" cy="6" r="1.5" fill="#F97316" />
+                  <circle cx="18" cy="6" r="1.5" fill="#D84FA5" />
                 </svg>
               </div>
 

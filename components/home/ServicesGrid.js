@@ -12,8 +12,7 @@ const cards = [
     border: "#F9A8D4",
     badge: "GREAT WALK!",
     badgeColor: "#EC4899",
-    icon: "/images/features/icon-walk.png",
-    useEmojiIcon: "🦮",
+    icon: "/images/serviceSection/pet-hand.png",
     title: "Max walked for",
     stat: "45 mins",
     statColor: "#EC4899",
@@ -26,8 +25,7 @@ const cards = [
     border: "#93C5FD",
     badge: "RECORD ADDED!",
     badgeColor: "#2563EB",
-    icon: "/images/features/icon-record.png",
-    useEmojiIcon: "💉",
+    icon: "/images/serviceSection/jab.png",
     title: null,
     stat: null,
     statColor: null,
@@ -44,8 +42,7 @@ const cards = [
     border: "#C4B5FD",
     badge: "WEIGHT CHECK",
     badgeColor: "#7C3FBE",
-    icon: "/images/features/icon-weight.png",
-    useEmojiIcon: "⚖️",
+    icon: "/images/serviceSection/weight-scale.png",
     title: null,
     stat: null,
     statColor: null,
@@ -62,8 +59,7 @@ const cards = [
     border: "#5EEAD4",
     badge: "EXPENSE ADDED",
     badgeColor: "#0D9488",
-    icon: "/images/features/icon-expense.png",
-    useEmojiIcon: "₹",
+    icon: "/images/serviceSection/rupee-logo.png",
     title: null,
     stat: null,
     statColor: null,
@@ -229,7 +225,7 @@ function FeatureCard({ card }) {
 
       {/* ── Info card — fixed height, narrower, more overlap ── */}
       <div
-        className="absolute bg-white rounded-[1rem] p-4 flex flex-col justify-center gap-2"
+        className="absolute bg-white rounded-[1rem] p-2 flex flex-col justify-start gap-2"
         style={{
           /* Narrower: left-5/right-5 = 20px inset each side */
           left: "28px",
@@ -244,11 +240,18 @@ function FeatureCard({ card }) {
         {/* Icon + badge row */}
         <div className="flex items-center flex-col gap-2">
           <div
-            className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0 text-base"
-            style={{ background: `${card.border}40` }}
+            className="w-16 h-16 rounded-xl flex items-center justify-center shrink-0 overflow-hidden"
             aria-hidden="true"
           >
-            {card.useEmojiIcon}
+            <div className="relative w-10 h-10 shrink-0">
+              <Image
+                src={card.icon}
+                alt=""
+                fill
+                className="object-contain"
+                sizes="24px"
+              />
+            </div>
           </div>
           <span
             className="font-black uppercase tracking-wide leading-none"
