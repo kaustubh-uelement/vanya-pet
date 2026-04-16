@@ -7,6 +7,7 @@ import CTASection from "@/components/home/CTASection";
 import FamilySection from "@/components/home/FamilySection";
 import PetParentingSection from "@/components/home/PetParentingSection";
 import FindFriendSection from "@/components/home/FindFriendSection";
+import ExpertTipsSection from "@/components/home/ExpertTipsSection";
 
 export const metadata = {
   title: "Vanya Pet — Your Pet's World. Just a Tap Away.",
@@ -20,6 +21,7 @@ export default function HomePage() {
       <FamilySection />
       <PetParentingSection />
       <FindFriendSection />
+      <ExpertTipsSection />
       {/* <StatsSection /> */}
       {/* <PhaseRoadmap /> */}
       {/* <AppPreview /> */}
