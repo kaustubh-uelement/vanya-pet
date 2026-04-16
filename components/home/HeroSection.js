@@ -27,34 +27,21 @@ const avatars = [
   { initials: "S", bg: "#6EE7B7" },
 ];
 
-/* ─────────────────────────────────────────────────────────────────
-   🎛️  ANIMAL POSITION CONTROLS — tweak these to reposition animals
-   ─────────────────────────────────────────────────────────────────
-   left / right   → horizontal position (% from that edge)
-   bottom         → how far they overflow BELOW the section
-                    positive = more overflow (paws stick out more)
-                    negative = pull them up (less overflow)
-   width          → size of the animal (% of the right column)
-   height         → vertical size of the container
-   ──────────────────────────────────────────────────────────────── */
+/* 🎛️ ANIMAL POSITION CONTROLS */
 const DOG = {
-  left: "22%", // ← increase to push right, decrease to push left
-  bottom: "-25%", // ← increase for more paw overflow
-  width: "56%", // ← increase to make bigger
-  height: "115%", // ← increase for more vertical space
+  left: "22%",
+  bottom: "-25%",
+  width: "56%",
+  height: "115%",
   zIndex: 1,
 };
-
 const CAT = {
-  right: "-18%", // ← increase to push further right (off-edge), decrease to pull left
-  bottom: "-5%", // ← increase for more paw overflow
-  width: "48%", // ← increase to make bigger
-  height: "95%", // ← increase for more vertical space
+  right: "-18%",
+  bottom: "-5%",
+  width: "48%",
+  height: "95%",
   zIndex: 2,
 };
-
-/* Height of the image container (right column).
-   Increase for taller animals, decrease for shorter. */
 const IMAGE_CONTAINER_HEIGHT = "clamp(300px, 46vw, 520px)";
 
 export default function HeroSection() {
@@ -63,11 +50,6 @@ export default function HeroSection() {
       className="relative bg-white"
       style={{
         paddingTop: "80px",
-        /*
-         * overflow-x: clip  → hides horizontal overflow (pink circle)
-         *                      WITHOUT creating a scroll container
-         * overflow-y: visible → paws are allowed to break below
-         */
         overflowX: "clip",
         overflowY: "visible",
       }}
@@ -76,30 +58,24 @@ export default function HeroSection() {
       {/* ══ PINK CIRCLE ══ */}
       <div
         aria-hidden="true"
+        className="absolute rounded-full pointer-events-none"
         style={{
-          position: "absolute",
           right: "-10%",
           bottom: "0%",
           transform: "translateY(50%)",
           width: "clamp(420px, 72vw, 980px)",
           height: "clamp(420px, 72vw, 980px)",
-          borderRadius: "50%",
           background:
             "linear-gradient(160deg, #FFE4EF 0%, #FFBCD9 45%, #FF9EC8 100%)",
           zIndex: 0,
-          pointerEvents: "none",
         }}
       />
 
       {/* ══ SCATTERED PAWS ══ */}
       <div
         aria-hidden="true"
-        style={{
-          position: "absolute",
-          inset: 0,
-          zIndex: 0,
-          pointerEvents: "none",
-        }}
+        className="absolute inset-0 pointer-events-none"
+        style={{ zIndex: 0 }}
       >
         <PawPrint
           size={28}
@@ -171,29 +147,17 @@ export default function HeroSection() {
 
       {/* ══ SEARCH BAR ══ */}
       <div
-        style={{
-          position: "relative",
-          zIndex: 10,
-          display: "flex",
-          justifyContent: "center",
-          paddingTop: "clamp(1rem, 2.5vw, 1.75rem)",
-          paddingInline: "1rem",
-        }}
+        className="relative flex justify-center px-4 z-10"
+        style={{ paddingTop: "clamp(1rem, 2.5vw, 1.75rem)" }}
       >
         <div
           role="search"
           aria-label="Product search — coming soon"
+          className="flex items-center gap-2 bg-white w-full rounded-md"
           style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "0.5rem",
-            width: "100%",
             maxWidth: "560px",
-            background: "white",
             border: "1.5px solid #E5E7EB",
-            borderRadius: "9999px",
             padding: "0.5rem 0.5rem 0.5rem 1.25rem",
-            boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
           }}
         >
           <input
@@ -201,50 +165,32 @@ export default function HeroSection() {
             placeholder="Search for more than 10,000 products"
             disabled
             aria-label="Search products"
-            style={{
-              flex: 1,
-              background: "transparent",
-              outline: "none",
-              color: "#9CA3AF",
-              fontSize: "clamp(0.8rem, 2vw, 0.9375rem)",
-              cursor: "default",
-              minWidth: 0,
-              border: "none",
-            }}
+            className="flex-1 bg-transparent outline-none text-gray-400 
+              placeholder-gray-400 cursor-default min-w-0 border-none"
+            style={{ fontSize: "clamp(0.8rem, 2vw, 0.9375rem)" }}
           />
           <div
             aria-hidden="true"
+            className="flex items-center justify-center rounded-full shrink-0"
             style={{
               width: "36px",
               height: "36px",
-              borderRadius: "50%",
-              background: "linear-gradient(135deg, #EC4899, #BE185D)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              flexShrink: 0,
+              
             }}
           >
-            <Search size={15} color="white" strokeWidth={2.5} />
+            <Search size={18} color="black" strokeWidth={2.5} />
           </div>
         </div>
       </div>
 
       {/* ══ MAIN CONTENT GRID ══ */}
       <div
+        className="relative z-10 mx-auto grid grid-cols-1 lg:grid-cols-2 items-end"
         style={{
           maxWidth: "1200px",
-          marginInline: "auto",
           paddingInline: "clamp(1rem, 5vw, 2rem)",
-          position: "relative",
-          zIndex: 10,
-          display: "grid",
-          /* Mobile: single column | Desktop: two equal columns */
-          gridTemplateColumns: "1fr",
-          alignItems: "flex-end",
           gap: "clamp(1rem, 3vw, 2rem)",
         }}
-        className="lg:!grid-cols-[1fr_1fr]"
       >
         {/* ── LEFT — Text column ── */}
         <div
@@ -253,14 +199,14 @@ export default function HeroSection() {
             paddingBottom: "clamp(2rem, 4vw, 3.5rem)",
           }}
         >
-          <div style={{ maxWidth: "min(100%, 480px)", width: "100%" }}>
+          <div className="w-full" style={{ maxWidth: "min(100%, 480px)" }}>
             {/* Headline */}
-            <div style={{ position: "relative", marginBottom: "1rem" }}>
+            <div className="relative mb-4">
+              {/* "ever" cursive */}
               <span
                 aria-hidden="true"
-                className="hidden sm:block"
+                className="absolute hidden sm:block select-none"
                 style={{
-                  position: "absolute",
                   top: "-0.4em",
                   right: "0",
                   fontFamily: 'Georgia, "Times New Roman", serif',
@@ -272,47 +218,31 @@ export default function HeroSection() {
                   textDecoration: "underline",
                   textDecorationStyle: "wavy",
                   textDecorationColor: "#EC4899",
-                  userSelect: "none",
                 }}
               >
                 ever
               </span>
 
               <h1
-                className="animate-slide-up"
+                className="animate-slide-up font-black uppercase text-[#1A1A1A] tracking-tight"
                 style={{
                   fontFamily: "var(--font-plus-jakarta, sans-serif)",
-                  fontWeight: 900,
-                  color: "#1A1A1A",
-                  textTransform: "uppercase",
                   fontSize: "clamp(2rem, 5.5vw, 3.75rem)",
                   lineHeight: 1.05,
-                  letterSpacing: "-0.02em",
                 }}
               >
-                <span
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "0.5rem",
-                    flexWrap: "wrap",
-                  }}
-                >
+                <span className="flex items-center gap-2 flex-wrap">
                   The Best
                   <span
                     aria-hidden="true"
-                    style={{
-                      display: "inline-flex",
-                      alignItems: "center",
-                      gap: "2px",
-                    }}
+                    className="inline-flex items-center gap-0.5"
                   >
                     <svg
                       width="clamp(22px,3.2vw,38px)"
                       height="clamp(22px,3.2vw,38px)"
                       viewBox="0 0 40 40"
                       fill="#EC4899"
-                      style={{ display: "inline", verticalAlign: "middle" }}
+                      className="inline align-middle"
                     >
                       <ellipse cx="10" cy="8" rx="4.5" ry="5.5" />
                       <ellipse cx="21" cy="5" rx="4.5" ry="5.5" />
@@ -325,11 +255,7 @@ export default function HeroSection() {
                       height="clamp(13px,1.8vw,22px)"
                       viewBox="0 0 40 40"
                       fill="#EC4899"
-                      style={{
-                        display: "inline",
-                        verticalAlign: "top",
-                        marginTop: "2px",
-                      }}
+                      className="inline align-top mt-0.5"
                     >
                       <ellipse cx="10" cy="8" rx="4.5" ry="5.5" />
                       <ellipse cx="21" cy="5" rx="4.5" ry="5.5" />
@@ -339,19 +265,16 @@ export default function HeroSection() {
                     </svg>
                   </span>
                 </span>
-                <span style={{ display: "block" }}>Pet Parenting App</span>
+                <span className="block">Pet Parenting App</span>
               </h1>
             </div>
 
             {/* Subheading */}
             <p
-              className="animate-slide-up delay-100"
+              className="animate-slide-up delay-100 text-gray-600 leading-relaxed mb-5"
               style={{
-                color: "#4B5563",
                 fontSize: "clamp(0.9rem, 1.4vw, 1.0625rem)",
-                lineHeight: 1.7,
                 maxWidth: "42ch",
-                marginBottom: "1.25rem",
               }}
             >
               One app to care better and give your pet their best life.
@@ -359,40 +282,27 @@ export default function HeroSection() {
 
             {/* Social proof pill */}
             <div
-              className="animate-slide-up delay-200"
+              className="animate-slide-up delay-200 flex items-center gap-3 w-fit 
+                px-4 py-2.5 rounded-full mb-6"
               style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "0.75rem",
-                width: "fit-content",
-                padding: "0.625rem 1rem",
-                borderRadius: "1rem",
                 background: "#F5F0FF",
                 border: "1px solid #E9D8FD",
-                marginBottom: "1.5rem",
               }}
             >
-              <div style={{ display: "flex", alignItems: "center" }}>
+              <div className="flex items-center">
                 {avatars.map((av, i) => (
                   <div
                     key={i}
                     aria-hidden="true"
+                    className="flex items-center justify-center rounded-full 
+                      font-bold text-gray-700 border-2 border-white shrink-0 relative"
                     style={{
                       width: "30px",
                       height: "30px",
-                      borderRadius: "50%",
                       background: av.bg,
                       marginLeft: i === 0 ? 0 : "-8px",
-                      border: "2px solid white",
                       fontSize: "11px",
-                      fontWeight: 700,
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      color: "#374151",
-                      position: "relative",
                       zIndex: avatars.length - i,
-                      flexShrink: 0,
                     }}
                   >
                     {av.initials}
@@ -400,11 +310,8 @@ export default function HeroSection() {
                 ))}
               </div>
               <p
-                style={{
-                  fontSize: "clamp(0.75rem,1.2vw,0.875rem)",
-                  fontWeight: 500,
-                  color: "#374151",
-                }}
+                className="font-medium text-gray-700"
+                style={{ fontSize: "clamp(0.75rem, 1.2vw, 0.875rem)" }}
               >
                 &ldquo;All my pet records in one place&rdquo;
               </p>
@@ -414,19 +321,16 @@ export default function HeroSection() {
 
         {/* ── RIGHT — Image column ── */}
         <div
-          className=""
+          className="relative w-full self-end"
           style={{
-            position: "relative",
             height: IMAGE_CONTAINER_HEIGHT,
-            width: "100%",
             zIndex: 20,
-            alignSelf: "flex-end",
           }}
         >
           {/* 🐶 DOG */}
           <div
+            className="absolute"
             style={{
-              position: "absolute",
               left: DOG.left,
               bottom: DOG.bottom,
               width: DOG.width,
@@ -447,8 +351,8 @@ export default function HeroSection() {
 
           {/* 🐱 CAT */}
           <div
+            className="absolute"
             style={{
-              position: "absolute",
               right: CAT.right,
               bottom: CAT.bottom,
               width: CAT.width,
@@ -469,34 +373,21 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* ══ BOTTOM SHADOW — inset ledge effect ══ */}
-      {/* Hard shadow line */}
+      {/* ══ BOTTOM SHADOW — ledge effect ══ */}
       <div
         aria-hidden="true"
-        style={{
-          position: "absolute",
-          bottom: 0,
-          left: 0,
-          right: 0,
-          height: "5px",
-          background: "rgba(0,0,0,0.09)",
-          zIndex: 8,
-          pointerEvents: "none",
-        }}
+        className="absolute bottom-0 left-0 right-0 pointer-events-none"
+        style={{ height: "5px", background: "rgba(0,0,0,0.09)", zIndex: 8 }}
       />
-      {/* Soft fade above */}
       <div
         aria-hidden="true"
+        className="absolute left-0 right-0 pointer-events-none"
         style={{
-          position: "absolute",
           bottom: "5px",
-          left: 0,
-          right: 0,
           height: "70px",
           background:
             "linear-gradient(to top, rgba(0,0,0,0.05) 0%, transparent 100%)",
           zIndex: 8,
-          pointerEvents: "none",
         }}
       />
     </section>
