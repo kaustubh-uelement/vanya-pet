@@ -160,32 +160,27 @@ export default function HeroSection() {
                     aria-hidden="true"
                     className="inline-flex items-center gap-0.5"
                   >
-                    <svg
-                      width="clamp(22px,3.2vw,38px)"
-                      height="clamp(22px,3.2vw,38px)"
-                      viewBox="0 0 40 40"
-                      fill="#EC4899"
-                      className="inline align-middle"
-                    >
-                      <ellipse cx="10" cy="8" rx="4.5" ry="5.5" />
-                      <ellipse cx="21" cy="5" rx="4.5" ry="5.5" />
-                      <ellipse cx="31" cy="8" rx="4.5" ry="5.5" />
-                      <ellipse cx="5" cy="18" rx="3.5" ry="4.5" />
-                      <path d="M20 16 C10 16 6 22 6 27 C6 33 12 36 20 36 C28 36 34 33 34 27 C34 22 30 16 20 16Z" />
-                    </svg>
-                    <svg
-                      width="clamp(13px,1.8vw,22px)"
-                      height="clamp(13px,1.8vw,22px)"
-                      viewBox="0 0 40 40"
-                      fill="#EC4899"
-                      className="inline align-top mt-0.5"
-                    >
-                      <ellipse cx="10" cy="8" rx="4.5" ry="5.5" />
-                      <ellipse cx="21" cy="5" rx="4.5" ry="5.5" />
-                      <ellipse cx="31" cy="8" rx="4.5" ry="5.5" />
-                      <ellipse cx="5" cy="18" rx="3.5" ry="4.5" />
-                      <path d="M20 16 C10 16 6 22 6 27 C6 33 12 36 20 36 C28 36 34 33 34 27 C34 22 30 16 20 16Z" />
-                    </svg>
+                    <PawPrint
+                      size={38}
+                      color="#EC4899"
+                      style={{
+                        display: "inline",
+                        verticalAlign: "middle",
+                        width: "clamp(22px, 3.2vw, 38px)",
+                        height: "clamp(22px, 3.2vw, 38px)",
+                      }}
+                    />
+                    <PawPrint
+                      size={22}
+                      color="#EC4899"
+                      style={{
+                        display: "inline",
+                        verticalAlign: "top",
+                        marginTop: "0.125rem",
+                        width: "clamp(13px, 1.8vw, 22px)",
+                        height: "clamp(13px, 1.8vw, 22px)",
+                      }}
+                    />
                   </span>
                 </span>
                 <span className="block">Pet Parenting App</span>
