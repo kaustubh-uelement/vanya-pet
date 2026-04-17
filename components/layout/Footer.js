@@ -134,7 +134,7 @@ export default function Footer() {
           <div className="flex flex-col items-start gap-4">
             <Link
               href="#download"
-              className="inline-flex items-center justify-center border-2 rounded-full font-semibold hover:bg-[#D84FA5] hover:text-white transition-colors duration-200"
+              className="inline-flex items-center justify-center border-2 rounded-full font-semibold hover:bg-[#D84FA5] hover:text-white! transition-colors duration-200"
               style={{
                 borderColor: "#D84FA5",
                 color: "#D84FA5",
@@ -284,7 +284,7 @@ export default function Footer() {
           <div className="flex flex-col items-end gap-4">
             <Link
               href="#download"
-              className="inline-flex items-center justify-center border-2 rounded-full font-semibold hover:bg-[#D84FA5] hover:text-white transition-colors duration-200"
+              className="inline-flex items-center justify-center border-2 rounded-full font-semibold hover:bg-[#D84FA5] hover:text-white! transition-colors duration-200"
               style={{
                 borderColor: "#D84FA5",
                 color: "#D84FA5",
