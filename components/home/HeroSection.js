@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import { Search } from "lucide-react";
@@ -9,21 +11,6 @@ const avatars = [
   { initials: "S", bg: "#6EE7B7" },
 ];
 
-/* 🎛️ ANIMAL POSITION CONTROLS */
-const DOG = {
-  left: "22%",
-  bottom: "-25%",
-  width: "56%",
-  height: "115%",
-  zIndex: 1,
-};
-const CAT = {
-  right: "-18%",
-  bottom: "-5%",
-  width: "48%",
-  height: "95%",
-  zIndex: 2,
-};
 const IMAGE_CONTAINER_HEIGHT = "clamp(280px, 44vw, 500px)";
 
 export default function HeroSection() {
@@ -37,22 +24,6 @@ export default function HeroSection() {
       }}
       aria-label="Hero"
     >
-      {/* ══ PINK CIRCLE ══ */}
-      <div
-        aria-hidden="true"
-        className="absolute rounded-full pointer-events-none"
-        style={{
-          right: "-10%",
-          bottom: "0%",
-          transform: "translateY(50%)",
-          width: "clamp(420px, 72vw, 980px)",
-          height: "clamp(420px, 72vw, 980px)",
-          background:
-            "linear-gradient(160deg, #FFE4EF 0%, #FFBCD9 45%, #FF9EC8 100%)",
-          zIndex: 0,
-        }}
-      />
-
       {/* ══ SCATTERED PAWS ══ */}
       <div
         aria-hidden="true"
@@ -147,17 +118,13 @@ export default function HeroSection() {
             placeholder="Search for more than 10,000 products"
             disabled
             aria-label="Search products"
-            className="flex-1 bg-transparent outline-none text-gray-400 
-              placeholder-gray-400 cursor-default min-w-0 border-none"
+            className="flex-1 bg-transparent outline-none text-gray-400 placeholder-gray-400 cursor-default min-w-0 border-none"
             style={{ fontSize: "clamp(0.8rem, 2vw, 0.9375rem)" }}
           />
           <div
             aria-hidden="true"
             className="flex items-center justify-center rounded-full shrink-0"
-            style={{
-              width: "36px",
-              height: "36px",
-            }}
+            style={{ width: "36px", height: "36px" }}
           >
             <Search size={18} color="black" strokeWidth={2.5} />
           </div>
@@ -185,9 +152,7 @@ export default function HeroSection() {
             <div className="relative mb-4">
               <h1
                 className="animate-slide-up font-title"
-                style={{
-                  lineHeight: 1.05,
-                }}
+                style={{ lineHeight: 1.05 }}
               >
                 <span className="flex items-center gap-2 flex-wrap">
                   The Best
@@ -272,7 +237,7 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* ── RIGHT — Image column ── */}
+        {/* ── RIGHT — Single hero image ── */}
         <div
           className="relative w-full self-end"
           style={{
@@ -280,35 +245,20 @@ export default function HeroSection() {
             zIndex: 20,
           }}
         >
-          {/* 🐶 DOG */}
-          <div className="absolute dog-bleed" style={{ zIndex: 1 }}>
+          <div className="absolute hero-img-bleed">
             <Image
-              src="/images/hero-dog.png"
-              alt="Happy dog with paws resting on the edge"
+              src="/images/hero-bg.png"
+              alt="Dog and cat peeking over the edge with pink circle background"
               fill
-              sizes="(max-width: 1024px) 44vw, 26vw"
+              sizes="(max-width: 1024px) 100vw, 55vw"
               className="object-contain object-bottom"
-              style={{ filter: "drop-shadow(0 20px 32px rgba(0,0,0,0.18))" }}
-              priority
-            />
-          </div>
-
-          {/* 🐱 CAT */}
-          <div className="absolute cat-bleed" style={{ zIndex: 2 }}>
-            <Image
-              src="/images/hero-cat.png"
-              alt="Curious cat peeking over the edge"
-              fill
-              sizes="(max-width: 1024px) 36vw, 20vw"
-              className="object-contain object-bottom"
-              style={{ filter: "drop-shadow(0 16px 24px rgba(0,0,0,0.14))" }}
               priority
             />
           </div>
         </div>
       </div>
 
-      {/* ══ BOTTOM SHADOW — ledge effect ══ */}
+      {/* ══ BOTTOM SHADOW ══ */}
       <div
         aria-hidden="true"
         className="absolute bottom-0 left-0 right-0 pointer-events-none"

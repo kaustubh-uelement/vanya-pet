@@ -518,3 +518,57 @@
     bottom: -8%;
   }
 }
+
+/* ── HERO IMAGE BLEED ── */
+.hero-img-bleed {
+  /* Mobile */
+  height: 125%;
+  bottom: -28%;
+  width: 110%;
+  left: 16%;
+}
+
+@media (min-width: 640px) {
+  .hero-img-bleed {
+    height: 128%;
+    bottom: -28%;
+    width: 108%;
+    left: 20%;
+  }
+}
+
+@media (min-width: 768px) {
+  .hero-img-bleed {
+    height: 130%;
+    bottom: -29%;
+    width: 106%;
+    left: 20%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-img-bleed {
+    height: 132%;
+    bottom: -22%;
+    width: 145%;
+    left: -12%;
+  }
+}
+
+@media (min-width: 1280px) {
+  .hero-img-bleed {
+    height: 115%;
+    bottom: -25%;
+    width: 160%;
+    left: -5%;
+  }
+}
+
+@media (min-width: 1536px) {
+  .hero-img-bleed {
+    height: 138%;
+    bottom: -26%;
+    width: 163%;
+    left: -1%;
+  }
+}
