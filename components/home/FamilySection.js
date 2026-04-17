@@ -39,12 +39,11 @@ export default function FamilySection() {
           className="relative mx-auto flex items-start justify-between gap-8"
           style={{
             maxWidth: "1200px",
-            paddingLeft: "0", // ← left div starts from edge
-            paddingRight: "clamp(1rem, 3vw, 2rem)", // ← just enough for right side
+            paddingInline: "clamp(1rem, 5vw, 2.5rem)",
           }}
         >
           {/* Left — eyebrow + headline + desc */}
-          <div className="flex-1 max-w-lg">
+          <div className="flex-1 max-w-lg ">
             {/* Eyebrow */}
             {/* <div className="flex items-center gap-1 mb-3">
               <span
@@ -174,10 +173,10 @@ export default function FamilySection() {
         }}
       >
         <div
-          className="mx-auto flex flex-col justify-center gap-3"
+          className="mx-auto flex flex-row md:flex-col justify-center gap-3"
           style={{
             maxWidth: "1200px",
-            paddingInline: "clamp(4rem, 8vw, 7rem)",
+            paddingInline: "clamp(1rem, 5vw, 2.5rem)",
             // Reserve right space so content doesn't go under mockup
             paddingRight: `${MOCKUP_WIDTH + 48}px`,
             height: "100%",
@@ -209,7 +208,7 @@ export default function FamilySection() {
             <Link
               href="/contact"
               className="inline-block font-bold transition-all duration-200
-                active:scale-95 hover:opacity-90"
+                active:scale-95 hover:opacity-90 w-fit whitespace-nowrap"
               style={{
                 background: "#D84FA5",
                 color: "#fff",
